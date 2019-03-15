@@ -1,6 +1,6 @@
 const model = require('./model.js').setupModel();
 const Data = require('./data.js');
-const tf = require('@tensorflow/tfjs-node');
+const tf = require('@tensorflow/tfjs-node-gpu');
 const d = new Data();
 
 const TRAIN_BATCH = 100;
@@ -17,7 +17,13 @@ async function train() {
 
     console.log(`Train[${TRAIN_COUNT}]`);
 
-    const h = await model.fit(xs, label, { batchSize: 90, epochs: 32, shuffle: true, validationData: [ valid.xs, valid.label ] });
+    const h = await model.fit(xs, label, {
+      batchSize: 90,
+      epochs: 32,
+      shuffle: true,
+      validationData: [ valid.xs, valid.label ],
+      callbacks: tf.node.tensorBoard('/tmp/fit_logs_1')
+    });
     console.log("Loss : " + h.history.loss[0]);
 
     const resultModel = await model.save('file://./crepe');

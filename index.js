@@ -1,11 +1,11 @@
-const tf = require('@tensorflow/tfjs-node');
+const tf = require('@tensorflow/tfjs-node-gpu');
 const wav = require('node-wav');
 const fs = require('fs');
 
 const SHAPE = 512;
 
 async function main() {
-  const model = await tf.loadLayersModel('file://./crepe/model.json');
+  const model = await tf.loadLayersModel('file://./kickPitchDetector/model.json');
   let path = process.argv[2];
   if (typeof path !== 'string') throw new Error('Argument is not a string.');
 

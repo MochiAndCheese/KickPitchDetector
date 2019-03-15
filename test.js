@@ -1,12 +1,12 @@
 const Data = require('./data.js');
-const tf = require('@tensorflow/tfjs-node');
+const tf = require('@tensorflow/tfjs-node-gpu');
 const data = new Data();
 
 const TEST_BATCH = 1;
 
 function main() {
   tf.tidy(async () => {
-    const model = await tf.loadLayersModel('file://./crepe/model.json');
+    const model = await tf.loadLayersModel('file://./kickPitchDetector/model.json');
     await test(model);
   });
 }
