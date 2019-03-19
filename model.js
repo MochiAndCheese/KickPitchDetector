@@ -1,5 +1,5 @@
 const tf = require('@tensorflow/tfjs-node-gpu');
-const SHAPE = 1024;
+const SHAPE = 512;
 
 function setupModel() {
   const model = tf.sequential();
@@ -11,7 +11,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 512,
-    filters: 1024,
+    filters: 512,
     strides: 4,
     padding: 'same',
     activation: 'relu',
@@ -24,7 +24,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 128,
+    filters: 64,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -37,7 +37,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 128,
+    filters: 64,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -50,7 +50,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 256,
+    filters: 128,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -63,7 +63,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 512,
+    filters: 256,
     strides: 1,
     padding: 'same',
     activation: 'relu',
