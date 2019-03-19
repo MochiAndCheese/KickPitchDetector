@@ -27,6 +27,8 @@ async function train() {
     console.log("Loss : " + h.history.loss[0]);
 
     const resultModel = await model.save('file://./crepe');
+    xs.dispose();
+    label.dispose();
   }
 
   return model;
