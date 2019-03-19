@@ -11,7 +11,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 512,
-    filters: 512,
+    filters: 128,
     strides: 4,
     padding: 'same',
     activation: 'relu',
@@ -24,7 +24,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 64,
+    filters: 16,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -37,7 +37,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 64,
+    filters: 16,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -50,7 +50,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 128,
+    filters: 32,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -63,7 +63,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 256,
+    filters: 64,
     strides: 1,
     padding: 'same',
     activation: 'relu',
