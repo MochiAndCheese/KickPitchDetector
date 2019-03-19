@@ -3,7 +3,7 @@ const fs = require('fs');
 const wav = require('node-wav');
 
 const BATCH = 90;
-const SHAPE = 512;
+const SHAPE = 1024;
 
 module.exports = class Data {
   _load(path) {

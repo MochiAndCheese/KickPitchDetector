@@ -5,10 +5,8 @@ const data = new Data();
 const TEST_BATCH = 1;
 
 function main() {
-  tf.tidy(async () => {
-    const model = await tf.loadLayersModel('file://./kickPitchDetector/model.json');
-    await test(model);
-  });
+  const model = await tf.loadLayersModel('file://./kickPitchDetector/model.json');
+  await test(model);
 }
 
 async function test(model) {
@@ -21,6 +19,8 @@ async function test(model) {
     let max = Math.max(...preds);
     let pitch = preds.indexOf(max);
     console.log(pitch + 1);
+    xs.dispose();
+    label.dispose();
   }
 }
 

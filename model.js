@@ -1,5 +1,5 @@
 const tf = require('@tensorflow/tfjs-node-gpu');
-const SHAPE = 512;
+const SHAPE = 1024;
 
 function setupModel() {
   const model = tf.sequential();
@@ -11,7 +11,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 512,
-    filters: 8,
+    filters: 1024,
     strides: 4,
     padding: 'same',
     activation: 'relu',
@@ -20,11 +20,11 @@ function setupModel() {
   model.add(tf.layers.maxPooling2d({
     poolSize: [2, 1]
   }));
-  // model.add(tf.layers.dropout(0.5));
+  model.add(tf.layers.dropout(0.5));
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 16,
+    filters: 128,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -37,7 +37,7 @@ function setupModel() {
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 16,
+    filters: 128,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -46,11 +46,11 @@ function setupModel() {
   model.add(tf.layers.maxPooling2d({
     poolSize: [2, 1]
   }));
-  // model.add(tf.layers.dropout(0.25));
+  model.add(tf.layers.dropout(0.25));
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 16,
+    filters: 256,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -59,11 +59,11 @@ function setupModel() {
   model.add(tf.layers.maxPooling2d({
     poolSize: [2, 1]
   }));
-  // model.add(tf.layers.dropout(0.5));
+  model.add(tf.layers.dropout(0.5));
 
   model.add(tf.layers.conv2d({
     kernelSize: 64,
-    filters: 64,
+    filters: 512,
     strides: 1,
     padding: 'same',
     activation: 'relu',
@@ -72,7 +72,7 @@ function setupModel() {
   model.add(tf.layers.maxPooling2d({
     poolSize: [2, 1]
   }));
-  // model.add(tf.layers.dropout(0.5));
+  model.add(tf.layers.dropout(0.5));
 
   model.add(tf.layers.flatten());
 
